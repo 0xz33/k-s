@@ -48,6 +48,7 @@ export default function Home() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          position: "relative",
         }}
       >
         <MetaballCanvas
@@ -57,19 +58,32 @@ export default function Home() {
           amount={222}
           density={10}
         />
-        <svg
-          width="800"
-          height="800"
-          viewBox="0 0 1600 1600"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          style={{ position: "relative", top: 0, left: 0 }}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
         >
-          <path
-            d="M400.5 0V300H500.5L700.5 100V0H1600.5V300H600.5V400L1500.5 1300H1600.5V1600H1500.5V1400L500.5 400H400.5V1300H100.5V1600H0.5V700H300.5V600L0.5 300V0H400.5Z"
-            fill="black"
-          />
-        </svg>
+          <svg
+            width="800"
+            height="800"
+            viewBox="0 0 1600 1600"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            // style={{ mixBlendMode: "exclusion" }}
+          >
+            <path
+              d="M400.5 0V300H500.5L700.5 100V0H1600.5V300H600.5V400L1500.5 1300H1600.5V1600H1500.5V1400L500.5 400H400.5V1300H100.5V1600H0.5V700H300.5V600L0.5 300V0H400.5Z"
+              fill="white"
+            />
+          </svg>
+        </div>
       </section>
     </main>
   );
