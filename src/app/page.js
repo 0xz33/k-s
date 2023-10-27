@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import MetaballCanvas from "./MetaballCanvas";
 import { useRef, useState, useLayoutEffect } from "react";
+import Records from "./components/records";
 
 export default function Home() {
   const containerRef = useRef(null);

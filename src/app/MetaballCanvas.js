@@ -3,10 +3,8 @@
 import React, { useEffect, useState, useRef } from "react";
 
 const MetaballCanvas = ({ amount, density, width, height }) => {
-  const isMobile = window.innerWidth <= 800;
+  const isMobile = width <= 800;
   const canvasRef = useRef(null);
-
-  console.log(isMobile);
 
   function getRandomFloat(min, max) {
     return Math.random() * (max - min) + min;
