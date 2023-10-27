@@ -52,11 +52,11 @@ export default function Home() {
         }}
       >
         <MetaballCanvas
-          style={{ zIndex: -111 }}
+          style={{ filter: "blur(10px)" }}
           width={dimensions.width}
           height={dimensions.height}
-          amount={222}
-          density={10}
+          amount={111}
+          density={8}
         />
         <div
           style={{
@@ -71,8 +71,8 @@ export default function Home() {
           }}
         >
           <svg
-            width="800"
-            height="800"
+            width="708"
+            height="708"
             viewBox="0 0 1600 1600"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -80,7 +80,7 @@ export default function Home() {
           >
             <path
               d="M400.5 0V300H500.5L700.5 100V0H1600.5V300H600.5V400L1500.5 1300H1600.5V1600H1500.5V1400L500.5 400H400.5V1300H100.5V1600H0.5V700H300.5V600L0.5 300V0H400.5Z"
-              fill="white"
+              fill="cyan"
             />
           </svg>
         </div>

@@ -1,7 +1,12 @@
+"use client";
+
 import React, { useEffect, useState, useRef } from "react";
 
 const MetaballCanvas = ({ amount, density, width, height }) => {
+  const isMobile = window.innerWidth <= 800;
   const canvasRef = useRef(null);
+
+  console.log(isMobile);
 
   function getRandomFloat(min, max) {
     return Math.random() * (max - min) + min;
@@ -13,7 +18,7 @@ const MetaballCanvas = ({ amount, density, width, height }) => {
       .map(() => ({
         x: width / 2,
         y: height / 2,
-        r: getRandomFloat(11, 33),
+        r: isMobile ? getRandomFloat(7, 15) : getRandomFloat(11, 33),
         vx: getRandomFloat(-3, 3),
         vy: getRandomFloat(-3, 3),
       }))
@@ -54,10 +59,10 @@ const MetaballCanvas = ({ amount, density, width, height }) => {
         for (let x = 0; x < width; x += stepSize) {
           if (f(x, y) > threshold) {
             ctx.beginPath();
-            ctx.strokeStyle = "cyan"; // replace with your color
-            // ctx.fillStyle = "cyan"; // replace with your color
-            // ctx.fillRect(x, y, stepSize, stepSize);
-            ctx.lineWidth = 1;
+            ctx.fillStyle = "#ebffff"; // replace with your color
+            ctx.fillRect(x, y, stepSize, stepSize);
+            ctx.strokeStyle = "cyan";
+            ctx.lineWidth = 0.5;
             ctx.strokeRect(x, y, stepSize, stepSize);
           }
         }
