@@ -2,45 +2,43 @@ import React, { useMemo } from "react";
 import s from "./glowHalo.module.scss";
 import Halo from "./Halo";
 
-const GlowHalo = ({ startColor, endColor }) => {
+const GlowHalo = ({ colors }) => {
   // console.log(startColor, endColor);
   const rings = useMemo(
     () => [
       {
         size: "22vw",
-        duration: "11",
+        duration: "22",
         zIndex: "112",
         marginTop: "3.33rem",
-        startColor,
-        endColor,
+        colors,
       },
       {
         size: "70vw",
-        duration: "11",
+        duration: "21",
         zIndex: "102",
         marginTop: "1rem",
-        startColor,
-        endColor,
+        colors,
       },
       {
         size: "55vw",
-        duration: "10",
+        duration: "20",
         zIndex: "102",
         marginTop: "3rem",
-        startColor,
-        endColor,
+        colors,
       },
       {
         size: "133vw",
-        duration: "5",
+        duration: "21",
         zIndex: "102",
         marginTop: "11rem",
-        startColor,
-        endColor,
+        colors,
       },
     ],
-    [startColor, endColor]
+    [colors]
   );
+
+  console.log(rings);
 
   return (
     <div className={s.container}>
@@ -51,8 +49,7 @@ const GlowHalo = ({ startColor, endColor }) => {
           zIndex={ring.zIndex}
           marginTop={ring.marginTop}
           duration={ring.duration}
-          startColor={ring.startColor}
-          endColor={ring.endColor}
+          colors={colors}
         />
       ))}
     </div>

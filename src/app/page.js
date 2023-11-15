@@ -46,7 +46,7 @@ export default function Home() {
 
   return (
     <main>
-      <GlowHalo startColor={"#ADFF00"} endColor={"#00FFFF"} />
+      <GlowHalo colors={["#ADFF00", "#00FFFF", "0000FF"]} />
       <section
         style={{
           width: "100vw",

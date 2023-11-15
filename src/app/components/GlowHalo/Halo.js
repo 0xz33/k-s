@@ -1,17 +1,13 @@
 import React, { useEffect, useRef } from "react";
 import s from "./glowHalo.module.scss";
 
-const Halo = ({
-  duration = 5,
-  size,
-  zIndex,
-  marginTop,
-  startColor,
-  endColor,
-}) => {
+const Halo = ({ duration, size, zIndex, marginTop, colors = [] }) => {
   const ringRef = useRef(null);
+  console.log(colors);
+  console.log("Rendering Halo component with size:", size);
 
   useEffect(() => {
+    console.log("Running effect with duration:", duration);
     // const gradients = [
     //   ["#EF9B80", "#E44A66", "#6D0505"],
     //   ["#EFD080", "#FA630D", "#6D0550"],
@@ -27,7 +23,10 @@ const Halo = ({
     const durationInMs = duration * 1000; // convert to ms
     const steps = (durationInMs / 1000) * 60; // Assuming 60 frames per second
 
-    function computeStepColor(startColor, endColor, step) {
+    function computeStepColor(colors, colorIndex, colorFraction) {
+      const startColor = colors[colorIndex];
+      const endColor = colors[(colorIndex + 1) % colors.length];
+
       const startRGB = parseInt(startColor.slice(1), 16);
       const startR = startRGB >> 16;
       const startG = (startRGB >> 8) & 0xff;
@@ -42,13 +41,13 @@ const Halo = ({
       const diffG = endG - startG;
       const diffB = endB - startB;
 
-      const r = Math.round(startR + diffR * step)
+      const r = Math.round(startR + diffR * colorFraction)
         .toString(16)
         .padStart(2, "0");
-      const g = Math.round(startG + diffG * step)
+      const g = Math.round(startG + diffG * colorFraction)
         .toString(16)
         .padStart(2, "0");
-      const b = Math.round(startB + diffB * step)
+      const b = Math.round(startB + diffB * colorFraction)
         .toString(16)
         .padStart(2, "0");
 
@@ -56,11 +55,15 @@ const Halo = ({
     }
 
     function animateGradient() {
+      const durationInMs = duration * 1000; // convert to ms
+      const steps = (durationInMs / 1000) * 60; // Assuming 60 frames per second
       const fraction = step / steps;
-      const currentColor =
-        fraction <= 0.5
-          ? computeStepColor(startColor, endColor, fraction * 2)
-          : computeStepColor(endColor, startColor, (fraction - 0.5) * 2);
+
+      const colorIndex = Math.floor(fraction * colors.length);
+      const nextColorIndex = (colorIndex + 1) % colors.length;
+      const colorFraction = fraction * colors.length - colorIndex;
+
+      const currentColor = computeStepColor(colors, colorIndex, colorFraction);
 
       if (ringRef.current) {
         ringRef.current.style.background = `radial-gradient(50% 50% at 50% 50%, ${currentColor} 0%, ${currentColor}00 100%)`;
@@ -68,7 +71,7 @@ const Halo = ({
 
       step++;
 
-      if (step > steps) {
+      if (step >= steps) {
         step = 0;
       }
 
@@ -76,7 +79,7 @@ const Halo = ({
     }
 
     requestAnimationFrame(animateGradient);
-  }, [duration, startColor, endColor]);
+  }, [duration]);
 
   return (
     <div
