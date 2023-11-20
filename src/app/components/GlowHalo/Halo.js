@@ -1,13 +1,11 @@
+"use client";
 import React, { useEffect, useRef } from "react";
 import s from "./glowHalo.module.scss";
 
 const Halo = ({ duration, size, zIndex, marginTop, colors = [] }) => {
   const ringRef = useRef(null);
-  console.log(colors);
-  console.log("Rendering Halo component with size:", size);
 
   useEffect(() => {
-    console.log("Running effect with duration:", duration);
     // const gradients = [
     //   ["#EF9B80", "#E44A66", "#6D0505"],
     //   ["#EFD080", "#FA630D", "#6D0550"],

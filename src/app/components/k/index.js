@@ -1,38 +1,66 @@
-import React, { useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { ExtrudeGeometry, MeshNormalMaterial, Shape, ShapePath } from "three";
+"use client";
 
-// Replace this with your SVG path
-const svgPath = "M10 10 H 90 V 90 H 10 Z";
+import React, { useEffect, useState, useRef } from "react";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { ExtrudeGeometry, MeshNormalMaterial, Box3, Vector3 } from "three";
+import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
 
-const ExtrudedSvg = () => {
+const ExtrudedSvg = ({ svgUrl }) => {
+  const [geometry, setGeometry] = useState(null);
   const meshRef = useRef();
+  const { camera } = useThree();
 
-  // Parse SVG path into Shape
-  const shapePath = new ShapePath();
-  const shapes = shapePath.toShapes(svgPath, false);
-  const shape = shapes[0];
+  useEffect(() => {
+    // Create a new SVGLoader
+    const loader = new SVGLoader();
+    loader.load(svgUrl, (data) => {
+      const shapes = data.paths[0].toShapes(true);
+      const shape = shapes[0];
+      const newGeometry = new ExtrudeGeometry(shape, { depth: 13 });
+      // Calculate the bounding box of the geometry
+      newGeometry.computeBoundingBox();
+      const box = newGeometry.boundingBox;
 
-  // Create extruded geometry from Shape
-  const geometry = new ExtrudeGeometry(shape, { depth: 10 });
+      // Calculate the center of the bounding box
+      const center = new Vector3();
+      box.getCenter(center);
 
-  useFrame(() => {
+      // Negate the center vector to center the geometry
+      newGeometry.center();
+      setGeometry(newGeometry);
+    });
+  }, [svgUrl]);
+
+  useFrame((state) => {
     if (meshRef.current) {
-      meshRef.current.rotation.y += 0.01;
+      meshRef.current.rotation.y += 0.005;
     }
   });
+  useEffect(() => {
+    if (geometry) {
+      // Update the camera position
+      camera.position.z = 5;
+      camera.lookAt(0, 0, 0);
+      camera.updateProjectionMatrix();
+    }
+  }, [geometry, camera]);
+
+  if (!geometry) return null;
 
   return (
-    <mesh ref={meshRef} geometry={geometry}>
+    <mesh ref={meshRef} geometry={geometry} scale={[0.04, -0.04, 0.04]}>
       <meshNormalMaterial attach="material" />
     </mesh>
   );
 };
 
-export default function App() {
+export default function K() {
+  // Replace this with the URL to your SVG file
+  const svgUrl = "./k.svg";
+
   return (
     <Canvas>
-      <ExtrudedSvg />
+      <ExtrudedSvg svgUrl={svgUrl} />
     </Canvas>
   );
 }

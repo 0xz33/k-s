@@ -1,86 +1,55 @@
 "use client";
-
-import Image from "next/image";
-import styles from "./page.module.css";
-import MetaballCanvas from "./MetaballCanvas";
-import { useRef, useState, useLayoutEffect } from "react";
-import Records from "./components/records";
-import GlowHalo from "./components/GlowHalo";
-import Noise from "./components/Noise";
-import SphereComponent from "./components/sphere";
+import { useState } from "react";
 import Halo from "./components/GlowHalo/Halo";
+import HeroTable from "./components/HeroTable";
+import K from "./components/K";
+import Row from "./components/Row";
+import s from "./page.module.scss";
 
 export default function Home() {
-  const containerRef = useRef(null);
-  const [dimensions, setDimensions] = useState({
-    width: 1731,
-    height: 1000,
-  });
-
-  const resizeCanvas = () => {
-    if (containerRef.current) {
-      setDimensions({
-        width: containerRef.current.offsetWidth,
-        height: containerRef.current.offsetHeight,
-      });
-    }
-  };
-
-  useLayoutEffect(() => {
-    function updateDimensions() {
-      if (containerRef.current) {
-        setDimensions({
-          width: containerRef.current.offsetWidth,
-          height: containerRef.current.offsetHeight,
-        });
-      }
-    }
-
-    resizeCanvas();
-    updateDimensions();
-
-    window.addEventListener("resize", resizeCanvas);
-    return () =>
-      window.removeEventListener("resize", resizeCanvas, updateDimensions);
-  }, []);
-
+  const [content, setContent] = useState("Work");
   return (
     <main>
-      <GlowHalo colors={["#0000FF", "#00FFFF"]} />
-      <section
-        style={{
-          width: "100vw",
-          height: "100vh",
-        }}
-      >
-        {/* <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <svg
-            width="320"
-            height="320"
-            viewBox="0 0 1600 1600"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M400.5 0V300H500.5L700.5 100V0H1600.5V300H600.5V400L1500.5 1300H1600.5V1600H1500.5V1400L500.5 400H400.5V1300H100.5V1600H0.5V700H300.5V600L0.5 300V0H400.5Z"
-              fill="#EBFFFF"
-            />
-          </svg>
+      {/* <GlowHalo colors={["#0000FF", "#00FFFF"]} /> */}
+      <div className={s.gridContainer}>
+        {content === "Work" && (
+          <div className={s.content}>
+            <HeroTable tableHeader={"Design"}>
+              <Row title="Lore" attribute="Web3 Media" />
+              <Row title="Bazaar" attribute="P2P Lending" />
+              <Row title="Magic Money" attribute="Mobile Lending" />
+              <Row title="Cubits" attribute="Auction House" />
+              <Row title="BitDAO" attribute="Token Launches" />
+              <Row title="Windranger" attribute="Design Systems" />
+            </HeroTable>
+          </div>
+        )}
+        {content === "About" && (
+          <div className={s.content}>What about US bitch</div>
+        )}
+        {content === "Contact" && (
+          <div className={s.content}>{/* Contact content goes here */}</div>
+        )}
+
+        <div className={s.pane}>
+          <div className={s.top}>
+            <K />
+            <div className={s.navSwitcher}>
+              <button onClick={() => setContent("About")}>About</button>
+              <button onClick={() => setContent("Work")}>Work</button>
+              <button onClick={() => setContent("Manifesto")}>Contact</button>
+            </div>
+          </div>
+          <div className={s.bottom}>
+            <p>
+              Kharmha is a creative tech company helping teams build. <br />
+              We help you push the boundary of what you thought was possible
+              with technology. Product Design. Custom AI Automation. Content.
+              Crypto.
+            </p>
+          </div>
         </div>
-        <Noise /> */}
-        {/* <SphereComponent /> */}
-      </section>
+      </div>
     </main>
   );
 }
