@@ -6,6 +6,22 @@ import K from "./components/K";
 import Row from "./components/Row";
 import s from "./page.module.scss";
 
+const metadata = {
+  title: "Kharmha Lab",
+  description: "Design-Driven Creative Studio for Ambitious Founders",
+  image: "",
+  keywords: [
+    "kharmha",
+    "crypto",
+    "design",
+    "web3",
+    "design",
+    "product",
+    "design",
+    "studio",
+  ],
+};
+
 export default function Home() {
   const [content, setContent] = useState("Work");
   return (

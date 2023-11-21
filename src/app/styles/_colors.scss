@@ -1,0 +1,15 @@
+@use "sass:color";
+
+$colors: (
+  black: "#000000",
+  white: "#F6F5F2",
+  pothos: "#ccff00",
+);
+
+:root {
+  @each $name, $color in getColors() {
+    --#{$name}: #{$color};
+    // // for safari use case: https://ambientimpact.com/web/snippets/safari-bug-with-gradients-that-fade-to-transparent
+    // --#{$name}-transparent: #{color.change($color, $alpha: 0)};
+  }
+}

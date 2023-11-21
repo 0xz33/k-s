@@ -1,14 +1,16 @@
-import "./globals.css";
+import styles from "./styles/global.scss";
 
-export const metadata = {
-  title: "Kharmha",
-  description: "Onchain Studio",
-};
-
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+  seo,
+  theme = "light",
+  className,
+}) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
+    <>
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    </>
   );
 }
