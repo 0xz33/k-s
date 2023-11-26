@@ -5,6 +5,7 @@ import HeroTable from "./components/HeroTable";
 import K from "./components/K";
 import Row from "./components/Row";
 import s from "./page.module.scss";
+import Landing from "./pages/Landing";
 
 const metadata = {
   title: "Kharmha Lab",
@@ -31,7 +32,35 @@ export default function Home() {
         {content === "Work" && (
           <div className={s.content}>
             <HeroTable tableHeader={"Design"}>
-              <Row title="Lore" attribute="Web3 Media" />
+              <Row title="Lore" attribute="Web3 Media">
+                Synergy and Scalability Ipsum: "At the end of the day, going
+                forward, a new normal that has evolved from generation X is on
+                the runway heading towards a streamlined cloud solution.
+                User-generated content in real-time will have multiple
+                touchpoints for offshoring." Global Market Ipsum: "Leverage
+                global markets to reach out to key demographics. Streamline
+                content-centric client-centric data without comprehensive
+                win-win survival strategies. The paradigm shift in global market
+                strategy requires careful analysis and out-of-the-box thinking."
+                Digital Integration Ipsum: "Seamlessly visualize quality
+                intellectual capital without superior collaboration and
+                idea-sharing. Holistically pontificate installed base portals
+                after maintainable products. Dramatically engage top-line web
+                services vis-a-vis cutting-edge deliverables." Customer
+                Centricity Ipsum: "Proactively fabricate one-to-one materials
+                via effective e-business. Completely synergize scalable
+                e-commerce rather than high standards in e-services. Assertively
+                iterate resource maximizing products after leading-edge
+                intellectual capital." Agile Workflow Ipsum: "Bring to the table
+                win-win survival strategies to ensure proactive domination. At
+                the end of the day, going forward, a new normal that has been
+                set in motion due to our streamlined cloud solutions and agile
+                frameworks." Data-Driven Decision Ipsum: "Empower data-driven
+                decision-making to craft meaningful brand experiences. Harness
+                big data to deliver customer-centric solutions and personalized
+                user experiences. Utilize analytics to drive innovation and
+                efficiency in our operations."
+              </Row>
               <Row title="Bazaar" attribute="P2P Lending" />
               <Row title="Magic Money" attribute="Mobile Lending" />
               <Row title="Cubits" attribute="Auction House" />
@@ -66,6 +95,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <Landing />
     </main>
   );
 }

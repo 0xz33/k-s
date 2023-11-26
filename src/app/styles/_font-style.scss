@@ -1,76 +1,56 @@
-.h1 {
-  text-align: center;
-  font-size: mobile-vw(43px);
-  font-style: normal;
-  font-weight: 700;
-  line-height: 92%;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-
-  @include desktop {
-    font-size: desktop-vw(178px);
-  }
+h1,
+h2,
+h3,
+body,
+a,
+button,
+input,
+label,
+textarea,
+select {
+  font-family: var(--font), sans-serif;
 }
 
-.p {
-  font-size: mobile-vw(16px);
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-  letter-spacing: 0.01em;
+// Variables for Typography
+$default-viewport: 1200;
+$scale-factor: 10;
 
-  @include desktop {
-    line-height: 140%;
-    font-size: desktop-vw(16px);
-  }
+// Minimum and maximum font sizes for different elements
+$min-font-size-body: 5px;
+$max-font-size-body: 18px;
+
+$min-font-size-h1: 24px;
+$max-font-size-h1: 60px;
+
+$min-font-size-h2: 20px;
+$max-font-size-h2: 50px;
+
+$min-font-size-h3: 16px;
+$max-font-size-h3: 40px;
+
+// Mixin for responsive font size
+@mixin responsive-font-size($min-size, $base-size, $max-size) {
+  font-size: clamp(
+    $min-size,
+    $base-size,
+    calc(#{$scale-factor} * (100vw / $default-viewport))
+  );
 }
 
-.p-s {
-  font-size: mobile-vw(12px);
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-  letter-spacing: -0.02em;
-  text-transform: uppercase;
-
-  @include desktop {
-    font-size: desktop-vw(12px);
-  }
+// Base Body Style
+body {
+  @include responsive-font-size($min-font-size-body, 16px, $max-font-size-body);
 }
 
-.p-xs {
-  font-size: mobile-vw(8px);
-  font-style: normal;
-  font-weight: 400;
-  line-height: 125%;
-
-  @include desktop {
-    font-size: desktop-vw(12px);
-  }
+// Headings
+h1 {
+  @include responsive-font-size($min-font-size-h1, 36px, $max-font-size-h1);
 }
 
-//
-
-.text-uppercase {
-  text-transform: uppercase;
+h2 {
+  @include responsive-font-size($min-font-size-h2, 30px, $max-font-size-h2);
 }
 
-.text-start {
-  text-align: start;
-}
-
-.text-end {
-  text-align: end;
-}
-
-.text-muted {
-  color: var(--grey);
-}
-
-.text-accent {
-  color: var(--green);
-}
-
-.text-bold {
-  font-weight: 700;
+h3 {
+  @include responsive-font-size($min-font-size-h3, 24px, $max-font-size-h3);
 }
