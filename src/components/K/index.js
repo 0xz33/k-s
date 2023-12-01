@@ -12,7 +12,9 @@ import {
   Vector3,
   ShaderMaterial,
 } from "three";
+
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
+import { AnaglyphEffect } from "three/addons/effects/AnaglyphEffect.js";
 
 const ExtrudedSvg = ({ svgUrl }) => {
   const [geometry, setGeometry] = useState(null);
@@ -123,6 +125,7 @@ const ExtrudedSvg = ({ svgUrl }) => {
     fragmentShader,
     uniforms: {},
   });
+  ``;
 
   return (
     <mesh

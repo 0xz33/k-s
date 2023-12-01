@@ -8,7 +8,7 @@ const HeroTable = ({ children, tableHeader }) => {
     <div className={s.tableContainer}>
       <div className={s.tableHeader}>
         <h1>{tableHeader}</h1>
-        <h4>{numProjects} Projects</h4>
+        <h4>{numProjects}</h4>
       </div>
       {children}
     </div>

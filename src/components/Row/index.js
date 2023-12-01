@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import s from "./row.module.scss";
 const Row = ({ title, attribute, children }) => {
@@ -6,14 +7,17 @@ const Row = ({ title, attribute, children }) => {
     setIsOpen(!isOpen);
   };
   return (
-    <div className={s.row} onClick={toggleOpen}>
+    <div
+      className={s.row}
+      // onClick={toggleOpen}
+    >
       {/* <div className={s.headerContainer}> */}
       <h3 className={s.title}>{title}</h3>
-      <h6>{attribute}</h6>
+      <h5>{attribute}</h5>
       {/* </div> */}
-      <a className={s.plusButton}>
+      {/* <a className={s.plusButton}>
         <span>{isOpen ? "-" : "+"} </span>
-      </a>
+      </a> */}
 
       {isOpen && (
         <>
