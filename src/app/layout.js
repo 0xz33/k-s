@@ -1,9 +1,6 @@
-"use client";
-
-import { useRouter } from "next/navigation";
 import s from "./page.module.scss";
 import SidePane from "@/components/Sidepane";
-import K from "@/components/K";
+import styles from "../styles/global.scss";
 
 export default function RootLayout({
   children,
@@ -12,16 +9,15 @@ export default function RootLayout({
   className,
 }) {
   return (
-    <>
-      <html lang="en">
-        <body>
+    <html lang="en">
+      <body>
+        <main>
           <div className={s.gridContainer}>
-            <div className={s.content}>{children}</div>
-            {/* <SidePane /> */}
-            <K />
+            {children}
+            <SidePane />
           </div>
-        </body>
-      </html>
-    </>
+        </main>
+      </body>
+    </html>
   );
 }

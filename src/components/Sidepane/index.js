@@ -1,15 +1,9 @@
 import React from "react";
 import s from "./sidepane.module.scss";
 import K from "../K";
-import { useRouter } from "next/navigation";
 import NavButtons from "../Navs/NavButtons";
 
-const SidePane = React.memo(() => {
-  const router = useRouter();
-
-  const handleClick = (route) => {
-    router.push(route), undefined, { shallow: true };
-  };
+const SidePane = () => {
   return (
     <div className={s.pane}>
       <div className={s.top}>
@@ -33,6 +27,6 @@ const SidePane = React.memo(() => {
       </div>
     </div>
   );
-});
+};
 
 export default SidePane;

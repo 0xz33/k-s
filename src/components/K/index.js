@@ -139,7 +139,7 @@ const ExtrudedSvg = ({ svgUrl }) => {
   );
 };
 
-export default function K() {
+const K = () => {
   const svgUrl = "./k.svg";
 
   return (
@@ -147,4 +147,6 @@ export default function K() {
       <ExtrudedSvg svgUrl={svgUrl} />
     </Canvas>
   );
-}
+};
+
+export default K;

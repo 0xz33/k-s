@@ -8,16 +8,15 @@ import { usePathname } from "next/navigation";
 
 const HomeContent = () => {
   const path = usePathname();
-  switch (path) {
-    case "/":
-      return <WorkContent />;
-    case "/about":
-      return <AboutContent />;
-    case "/contact":
-      return <ContactContent />;
-    default:
-      return <WorkContent />;
-  }
+  const contentMap = {
+    "/": <WorkContent />,
+    "/about": <AboutContent />,
+    "/contact": <ContactContent />,
+  };
+  return contentMap[path] || <WorkContent />;
 };
+// const HomeContent = () => {
+//   return <h1>contact</h1>;
+// };
 
 export default HomeContent;
