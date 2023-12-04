@@ -4,7 +4,12 @@
   display: flex;
   justify-content: space-between;
   border-top: 1px solid black;
-  transition: 1s;
+  transition: 0.33s;
+  transition-timing-function: ease-out;
+
+  &:hover {
+    background-color: #00000011;
+  }
 }
 
 .title {

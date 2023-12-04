@@ -6,6 +6,11 @@ import Row from "../Row";
 const ClientList = () => {
   return (
     <HeroTable tableHeader={"Past Work"}>
+      <Row
+        title="Lore"
+        attribute="Decentralized Storytelling"
+        route="/work/lore"
+      />
       <Row title="ByBit / BitDAO" attribute="Token Launches" />
       <Row title="Windranger" attribute="Design Systems" />
       <Row title="Bazaar" attribute="P2P Lending" />

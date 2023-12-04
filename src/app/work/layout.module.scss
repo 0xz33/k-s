@@ -1,0 +1,28 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  // grid-column: 1 / 3;
+  flex: 1 1 auto;
+  height: 100vh;
+  overflow-y: auto;
+
+  padding: 3rem;
+
+  // outline: 1px solid black;
+
+  &::-webkit-scrollbar {
+    width: 3px; // Width of the scrollbar
+  }
+
+  &::-webkit-scrollbar-track {
+    background: "#fcfcfcfc"; // Color of the track
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: "#000000"; // Color of the scroll thumb
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555555; // Color of the scroll thumb on hover
+  }
+}
