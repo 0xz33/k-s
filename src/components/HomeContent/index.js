@@ -1,22 +1,23 @@
 "use client";
 
 import React from "react";
-import AboutContent from "@/components/AboutContent";
-import WorkContent from "@/components/WorkContent";
-import ContactContent from "@/components/ContactContent";
 import { usePathname } from "next/navigation";
+import ClientList from "../ClientList";
 
 const HomeContent = () => {
   const path = usePathname();
-  const contentMap = {
-    "/": <WorkContent />,
-    "/about": <AboutContent />,
-    "/contact": <ContactContent />,
-  };
-  return contentMap[path] || <WorkContent />;
+
+  if (path === "/") {
+    return <ClientList />;
+  } else if (path === "/about") {
+    return <Beliefs />;
+  } else if (path === "/contact") {
+    return <h1>contact</h1>;
+  } else if (path.includes("/work/") && path !== "/work/") {
+    return <WorkDetail />;
+  } else {
+    return <ClientList />;
+  }
 };
-// const HomeContent = () => {
-//   return <h1>contact</h1>;
-// };
 
 export default HomeContent;

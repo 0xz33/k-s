@@ -26,6 +26,10 @@ const viewports = {
     width: "375px",
     height: "650px",
   },
+  tablet: {
+    width: "768px",
+    height: "875px",
+  },
   desktop: {
     width: "1440px",
     height: "816px",

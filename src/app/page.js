@@ -1,7 +1,6 @@
-"use client";
-import { usePathname } from "next/navigation";
-import WorkContent from "@/components/WorkContent";
+// "use client";
 import s from "./page.module.scss";
+import HomeContent from "@/components/HomeContent";
 const metadata = {
   title: "Kharmha Lab",
   description: "Design-Driven Creative Studio for Ambitious Founders",
@@ -21,10 +20,9 @@ const metadata = {
 };
 
 export default function Home() {
-  const pathname = usePathname();
   return (
     <div className={s.content}>
-      <WorkContent />
+      <HomeContent />
     </div>
   );
 }

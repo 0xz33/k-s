@@ -19,17 +19,6 @@ $mobile-height: get("viewports.mobile.height");
 }
 
 // Breakpoint
-@mixin mobile {
-  @media (max-width: pxToVw($mobile-breakpoint - 1px)) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (min-width: pxToVw($mobile-breakpoint)) {
-    @content;
-  }
-}
 
 @function mobile-vw($pixels) {
   @return pxToVw($pixels, $mobile-width);

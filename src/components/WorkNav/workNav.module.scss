@@ -1,0 +1,11 @@
+.navbar {
+  height: 3rem;
+  position: fixed;
+  backdrop-filter: blur(10px);
+  background-color: pink;
+  width: 67vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

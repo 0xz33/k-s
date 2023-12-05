@@ -1,16 +1,18 @@
 .pane {
-  // width: 100%;
-  // height: 100%;
-  // position: fixed;
-  flex: 0 0 400px;
+  flex: 0 0 33vw;
   height: 100vh;
   display: grid;
-  // outline: 1px solid black;
+
   margin-top: 1px;
   margin-left: 1px;
+  grid-template-rows: repeat(4, 1fr);
 
-  grid-template-rows: repeat(4, 1fr); /* 2 rows */
-
+  @media (max-width: 768px) {
+    max-height: 3.5rem;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+  }
   .top {
     display: flex;
     flex-direction: column;
@@ -18,18 +20,60 @@
     justify-content: center;
     grid-row: 1 / 3;
     margin-top: -1px;
+    transition-duration: 0.44s;
 
     outline: 1px solid black;
+    backdrop-filter: blur(11px);
+
+    @media (max-width: 768px) {
+      height: 3.5rem;
+    }
+    .navSwitcher {
+      display: none;
+    }
+  }
+  .workPaneTop {
+    display: flex;
+    grid-row: 1 / 2;
+    margin-top: -1px;
+
+    transition-duration: 4s;
+
+    outline: 1px solid black;
+
+    @media (max-width: 768px) {
+      height: 3.5rem;
+    }
+    .navSwitcher {
+      display: none;
+    }
   }
   .bottom {
     display: flex;
-    // flex-direction: column;
-    // align-items: center;
     justify-content: center;
     grid-row: 3 / -1;
     margin-top: 1px;
     outline: 1px solid black;
     padding: 2rem;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+  .workPaneBottom {
+    display: flex;
+    grid-row: 2 / -1;
+    height: 100%;
+    margin-top: 1px;
+    outline: 1px solid black;
+    padding: 2rem;
+
+    @media (max-width: 768px) {
+      height: 3.5rem;
+    }
+    .navSwitcher {
+      display: none;
+    }
   }
 }
 

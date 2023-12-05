@@ -3,7 +3,7 @@
 @import "./_colors.scss";
 @import "./_font-style.scss";
 // @import "./_easings.scss";
-// @import "./_functions.scss";
+@import "./_functions.scss";
 // @import "./_layout.scss";
 // @import "./_utils.scss";
 // @import "./_themes.scss";
@@ -41,25 +41,8 @@ select {
   color: var(--theme-primary);
 }
 
-svg.icon {
-  path[fill],
-  rect[fill],
-  circle[fill] {
-    fill: currentColor;
-  }
-
-  path[stroke],
-  rect[stroke],
-  circle[stroke] {
-    stroke: currentColor;
-  }
-}
-
 .link {
   &:hover {
     color: var(--theme-contrast);
   }
-}
-
-body {
 }

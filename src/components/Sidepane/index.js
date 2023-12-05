@@ -1,29 +1,23 @@
+"use client";
+
 import React from "react";
 import s from "./sidepane.module.scss";
 import K from "../K";
-import NavButtons from "../Navs/NavButtons";
+import { useWindowSize } from "react-use";
+import BottomPane from "./BottomPane";
+import { usePathname } from "next/navigation";
 
 const SidePane = () => {
+  const path = usePathname();
+  const isWork = path.includes("/work/");
+  // const { width: viewportWidth } = useWindowSize();
   return (
     <div className={s.pane}>
-      <div className={s.top}>
+      <div className={isWork ? s.workPaneTop : s.top}>
         <K />
-        <NavButtons />
       </div>
-      <div className={s.bottom}>
-        <span>
-          <p>
-            Kharmha is a creative studio helping ambitious crypto & AI teams
-            grow.
-          </p>
-          <br />
-          We help you push the boundary of what you thought was possible with
-          software. We have designed products for Ethereum & Bitcoin Startups, &
-          AI Founders. <br />
-          <br />
-          We specialize in Product Design, Brand Design, Web Dev, AI Strategy, &
-          Crypto Strategy.
-        </span>
+      <div className={isWork ? s.workPaneBottom : s.bottom}>
+        <BottomPane />
       </div>
     </div>
   );

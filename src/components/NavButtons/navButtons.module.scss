@@ -1,0 +1,17 @@
+.navSwitcher {
+  display: flex;
+  // width: 100%;
+  // justify-content: space-between;
+  max-width: 20rem;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  button {
+    padding: 0.1rem;
+    text-decoration: underline;
+  }
+}
+
+.active {
+  background-color: var(--white-500);
+  text-decoration: none !important;
+}

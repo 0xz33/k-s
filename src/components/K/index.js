@@ -2,9 +2,6 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { EffectComposer } from "postprocessing";
-import { RenderPass } from "postprocessing";
-import { BloomPass } from "postprocessing";
 import {
   ExtrudeGeometry,
   MeshNormalMaterial,
@@ -14,7 +11,6 @@ import {
 } from "three";
 
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
-import { AnaglyphEffect } from "three/addons/effects/AnaglyphEffect.js";
 
 const ExtrudedSvg = ({ svgUrl }) => {
   const [geometry, setGeometry] = useState(null);
@@ -140,7 +136,7 @@ const ExtrudedSvg = ({ svgUrl }) => {
 };
 
 const K = () => {
-  const svgUrl = "./k.svg";
+  const svgUrl = "/k.svg";
 
   return (
     <Canvas>
