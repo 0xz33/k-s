@@ -5,10 +5,8 @@ import WorkNav from "@/components/WorkNav";
 const Layout = ({ children }) => {
   return (
     <div className={s.layout}>
-      <div className={s.container}>
-        <WorkNav />
-        {children}
-      </div>
+      <WorkNav />
+      <div className={s.container}>{children}</div>
     </div>
   );
 };

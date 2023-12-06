@@ -3,6 +3,7 @@
 import React from "react";
 import { usePathname } from "next/navigation";
 import ClientList from "../ClientList";
+import Beliefs from "../Beliefs";
 
 const HomeContent = () => {
   const path = usePathname();

@@ -1,0 +1,12 @@
+// BREAKPOINTS
+$mobile: 376px;
+$tablet: 835px;
+$desktop: 1024px;
+$jumbo: 1440px;
+
+:export {
+  mobile: $mobile;
+  tablet: $tablet;
+  desktop: $desktop;
+  jumbo: $jumbo;
+}

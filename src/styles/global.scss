@@ -46,3 +46,10 @@ select {
     color: var(--theme-contrast);
   }
 }
+
+// Define breakpoints for different screen sizes
+
+$mobile: 576px;
+$tablet: 835px;
+$large: 1024px;
+$xlarge: 1440px;

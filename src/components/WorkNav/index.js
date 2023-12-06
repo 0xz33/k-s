@@ -13,7 +13,7 @@ const WorkNav = () => {
     <nav className={s.navbar}>
       <div classname={s.buttonContainer}>
         <button className={s.closeButton} onClick={() => router.back()}>
-          Close
+          CLOSE
         </button>
       </div>
     </nav>

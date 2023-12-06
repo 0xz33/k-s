@@ -25,8 +25,8 @@ const BottomPane = () => {
         </p>
         <br />
         We help you push the boundary of what you thought was possible with
-        software. We have designed products for Ethereum & Bitcoin Startups, &
-        AI Founders. <br />
+        software. We have designed products for Crypto Startups, Big Banks, & AI
+        Founders. <br />
         <br />
         We specialize in Product Design, Brand Design, Web Dev, AI Strategy, &
         Crypto Strategy.

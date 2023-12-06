@@ -12,19 +12,19 @@ const ClientList = () => {
         route="/work/lore"
       />
       <Row title="ByBit / BitDAO" attribute="Token Launches" />
-      <Row title="Windranger" attribute="Design Systems" />
-      <Row title="Bazaar" attribute="P2P Lending" />
+      {/* <Row title="Windranger" attribute="Design Systems" /> */}
+      {/* <Row title="Bazaar" attribute="P2P Lending" />chrom */}
       <Row title="Magic Money" attribute="Mobile Lending" />
       <Row title="Disentropic Foundry" attribute="Ordinals Fabrication" />
-      <Row
+      {/* <Row
         title="Imaginary Company Company, LLC"
         attribute="Imagination Refinery"
-      />
+      /> */}
       <Row title="Cubits" attribute="BTC Auction House" />
       <Row title="Haste Arcade" attribute="P2E Gaming" />
-      <Row title="Citibank" attribute="Data Analytics" />
+      <Row title="Citibank" attribute="Anayltics Dashboard" />
       <Row title="Bank of America" attribute="DevOps Dashboard" />
-      <Row title="The Urban Institute" attribute="Internal Tools" />
+      <Row title="The Urban Institute" attribute="Analytics Dashboard" />
       <Row title="Rodan + Fields" attribute="Incentive Design" />
     </HeroTable>
   );
