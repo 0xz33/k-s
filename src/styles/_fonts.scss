@@ -17,6 +17,15 @@
   // font-display: swap;
 }
 
+@font-face {
+  font-family: "Neue Montreal";
+  src: url("/fonts/OTNeueMontreal-BoldSqueezed.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  // font-display: swap;
+}
+
 :root {
   --font: "Px Grotesk";
+  --records-font: "Neue Montreal";
 }

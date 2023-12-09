@@ -6,6 +6,7 @@ import Row from "../Row";
 const ClientList = () => {
   return (
     <HeroTable tableHeader={"Past Work"}>
+      <Row title="Records" attribute="Records Archive" route="/records" />
       <Row
         title="Lore"
         attribute="Decentralized Storytelling"

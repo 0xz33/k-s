@@ -1,0 +1,84 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin-right: -1px;
+  overflow: hidden;
+}
+.studioLink {
+  width: 100%;
+  height: 50%;
+  border: 1px solid black;
+  //   background-color: #fff;
+  margin-bottom: -1px;
+  padding: 1rem 0 0 1rem;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(60px, 1fr));
+  grid-gap: 1rem;
+
+  overflow: hidden; // Hide the overflowing content
+  width: 200%; // Make the container twice as wide
+  animation: marquee 10s linear infinite paused; // Apply the marquee animation, initially paused
+  &:hover {
+    background-color: #ccff00;
+  }
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.studioLink:hover {
+  animation-play-state: running; // Start the animation on hover
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+@keyframes reverseMarquee {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.recordsLink {
+  width: 100%;
+  height: 50%;
+  border: 1px solid black;
+
+  display: flex;
+
+  align-items: center;
+  margin-right: 1px;
+  overflow: hidden; // Hide the overflowing content
+  width: 200%; // Make the container twice as wide
+  animation: marquee 10s linear infinite paused; // Apply the marquee animation, initially paused
+
+  h1 {
+    padding-left: 4rem;
+    text-align: center;
+    line-height: 100%;
+    font-size: 8rem;
+    letter-spacing: -0.2rem;
+    font-family: var(--records-font);
+  }
+}
+.recordsLink:hover {
+  background-color: red;
+  h1 {
+    color: white;
+  }
+  animation-play-state: running; // Start the animation on hover
+}
