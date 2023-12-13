@@ -7,8 +7,7 @@
   margin-left: 1px;
   grid-template-rows: repeat(4, 1fr);
 
-  @media (max-width: var(--tablet)) {
-    background-color: lime;
+  @media (max-width: 835px) {
     max-height: 3.5rem;
     position: fixed;
     top: 0;
@@ -26,7 +25,8 @@
     outline: 1px solid black;
     backdrop-filter: blur(11px);
 
-    @media (max-width: var(--tablet)) {
+    @media (max-width: 835px) {
+      margin-left: -1px;
       height: 3.5rem;
     }
     .navSwitcher {
@@ -42,7 +42,7 @@
 
     outline: 1px solid black;
 
-    @media (max-width: var(--tablet)) {
+    @media (max-width: 835px) {
       height: 3.5rem;
     }
     .navSwitcher {
@@ -57,7 +57,7 @@
     outline: 1px solid black;
     padding: 2rem;
 
-    @media (max-width: var(--tablet)) {
+    @media (max-width: 835px) {
       display: none;
     }
   }

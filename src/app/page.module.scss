@@ -4,6 +4,10 @@
   display: flex;
   overflow: hidden;
   overscroll-behavior: none;
+
+  @media (max-width: 835px) {
+    flex-direction: column;
+  }
 }
 .content {
   display: flex;
@@ -11,8 +15,8 @@
   flex: 1 1 auto;
   height: 100vh;
   overflow-y: auto;
-  @media (max-width: 768px) {
-    padding: 0rem;
+  @media (max-width: 835px) {
+    padding: 4rem 0 0 0;
     h3 {
       line-height: 100%;
     }
