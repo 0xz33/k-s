@@ -11,7 +11,8 @@
   &:hover {
     // background-color: #000000;
     // color: white;
-    background-color: var(--hover-color);
+    // background-color: rgba(var(--hover-color), 0.22);
+    background-color: #ccff00;
   }
 }
 
