@@ -1,6 +1,7 @@
-@use 'sass:color';
+@use "sass:color";
+@import "vars";
 
-@each $name, $theme in getThemes() {
+@each $name, $theme in $themes {
   .theme-#{$name} {
     @each $name, $color in $theme {
       --theme-#{$name}: #{$color};

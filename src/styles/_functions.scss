@@ -10,30 +10,33 @@ $desktop-height: get("viewports.desktop.height");
 $mobile-width: get("viewports.mobile.width");
 $mobile-height: get("viewports.mobile.height");
 
-@function pxToVw($px, $base-width: $desktop-width) {
-  @return ($px / $base-width) * 100 * 1vw;
-}
-
-@function pxToVh($px, $base-height: $desktop-height) {
-  @return ($px / $base-height) * 100 * 1vh;
-}
-
 // Breakpoint
-
-@function mobile-vw($pixels) {
-  @return pxToVw($pixels, $mobile-width);
+@mixin mobile {
+  @media (max-width: #{$mobile-breakpoint - 1px}) {
+    @content;
+  }
 }
 
-@function mobile-vh($pixels) {
-  @return pxToVh($pixels, $mobile-height);
+@mixin desktop {
+  @media (min-width: #{$mobile-breakpoint}) {
+    @content;
+  }
 }
 
-@function desktop-vw($pixels) {
-  @return pxToVw($pixels, $desktop-width);
+@function mobile-vw($pixels, $base-vw: $mobile-width) {
+  @return math.div($pixels * 100vw, $base-vw);
 }
 
-@function desktop-vh($pixels) {
-  @return pxToVh($pixels, $desktop-height);
+@function mobile-vh($pixels, $base-vh: $mobile-height) {
+  @return math.div($pixels * 100vh, $base-vh);
+}
+
+@function desktop-vw($pixels, $base-vw: $desktop-width) {
+  @return math.div($pixels * 100vw, $base-vw);
+}
+
+@function desktop-vh($pixels, $base-vh: $desktop-height) {
+  @return math.div($pixels * 100vh, $base-vh);
 }
 
 @mixin hover {
@@ -46,4 +49,11 @@ $mobile-height: get("viewports.mobile.height");
   @media (prefers-reduced-motion: reduce) {
     @content;
   }
+}
+
+@function columns($columns) {
+  @return calc(
+    (#{$columns} * var(--layout-column-width)) +
+      ((#{$columns} - 1) * var(--layout-columns-gap))
+  );
 }

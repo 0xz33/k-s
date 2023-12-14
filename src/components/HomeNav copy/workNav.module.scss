@@ -1,0 +1,16 @@
+.navbar {
+  height: 3rem;
+  position: fixed;
+  backdrop-filter: blur(10px);
+  width: calc(100vw - 401px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  button {
+    background-color: #fff;
+    padding: 0.5rem 2rem;
+    border: 1px solid #000;
+  }
+}

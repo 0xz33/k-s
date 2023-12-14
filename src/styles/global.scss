@@ -2,11 +2,11 @@
 @import "./_fonts.scss";
 @import "./_colors.scss";
 @import "./_font-style.scss";
-// @import "./_easings.scss";
+@import "./_easings.scss";
 @import "./_functions.scss";
-// @import "./_layout.scss";
-// @import "./_utils.scss";
-// @import "./_themes.scss";
+@import "./_layout.scss";
+@import "./_utils.scss";
+@import "./_themes.scss";
 // @import "./_scroll.scss";
 
 // :root {
@@ -24,6 +24,7 @@ body {
 
 body {
   min-height: 100vh;
+  background-color: var(--theme-contrast);
 }
 
 a,

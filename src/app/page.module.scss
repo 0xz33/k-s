@@ -4,6 +4,8 @@
   display: flex;
   overflow: hidden;
   overscroll-behavior: none;
+  background-color: var(--theme-secondary);
+  color: var(--theme-primary);
 
   @media (max-width: 835px) {
     flex-direction: column;
