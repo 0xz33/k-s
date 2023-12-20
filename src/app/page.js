@@ -57,41 +57,39 @@ export default function Home() {
   }, []);
 
   return (
-    <div className={s.content}>
-      <section
+    // <div className={s.content}>
+    <section
+      style={{
+        width: "100vw",
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        position: "relative",
+      }}
+    >
+      <MetaballCanvas
+        style={{ filter: "blur(10px)" }}
+        width={dimensions.width}
+        height={dimensions.height}
+        amount={177}
+        density={8}
+      />
+      <div
         style={{
-          width: "100vw",
-          height: "100vh",
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          position: "relative",
         }}
       >
-        <MetaballCanvas
-          style={{ filter: "blur(10px)" }}
-          width={dimensions.width}
-          height={dimensions.height}
-          amount={177}
-          density={8}
-        />
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <K />
-        </div>
-      </section>
-
+        <K />
+      </div>
       {/* <HomeContent /> */}
-    </div>
+    </section>
   );
 }
