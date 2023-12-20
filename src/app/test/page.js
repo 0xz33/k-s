@@ -7,7 +7,6 @@ import K from "@/components/K";
 export default function Test() {
   return (
     <div className={s.container}>
-      <K style={{ display: "absolute" }} />
       <Link className={s.studioLink} href="/">
         {[...Array(100)].map((_, i) => (
           <Image

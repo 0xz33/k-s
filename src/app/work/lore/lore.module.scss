@@ -1,3 +1,9 @@
 .container {
   background-color: lime;
 }
+
+.fullWidthImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
