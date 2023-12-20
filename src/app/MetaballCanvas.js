@@ -17,8 +17,8 @@ const MetaballCanvas = ({ amount, density, width, height }) => {
         x: width / 2,
         y: height / 2,
         r: isMobile ? getRandomFloat(7, 15) : getRandomFloat(11, 33),
-        vx: getRandomFloat(-1, 1),
-        vy: getRandomFloat(-1, 1),
+        vx: getRandomFloat(-3, 3),
+        vy: getRandomFloat(-3, 3),
       }))
   );
 
@@ -57,11 +57,11 @@ const MetaballCanvas = ({ amount, density, width, height }) => {
         for (let x = 0; x < width; x += stepSize) {
           if (f(x, y) > threshold) {
             ctx.beginPath();
-            ctx.fillStyle = "#F8FEEA"; // replace with your color
+            ctx.fillStyle = "#ccff0033"; // replace with your color
             ctx.fillRect(x, y, stepSize, stepSize);
-            // ctx.strokeStyle = "#000000";
-            // ctx.lineWidth = 1;
-            // ctx.strokeRect(x, y, stepSize, stepSize);
+            ctx.strokeStyle = "#ccff00";
+            ctx.lineWidth = 1;
+            ctx.strokeRect(x, y, stepSize, stepSize);
           }
         }
       }

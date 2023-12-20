@@ -15,7 +15,7 @@ export default function RootLayout({
         <main>
           <div className={cn(`theme-${theme}`, s.gridContainer, className)}>
             {children}
-            <SidePane />
+            {/* <SidePane /> */}
           </div>
         </main>
       </body>
