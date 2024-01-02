@@ -4,6 +4,8 @@ import s from "./page.module.scss";
 import HomeContent from "@/components/HomeContent";
 import MetaballCanvas from "./MetaballCanvas";
 import { useLayoutEffect, useRef, useState } from "react";
+import { useWindowSize } from "react-use";
+
 const metadata = {
   title: "Kharmha Lab",
   description: "Design-Driven Creative Studio for Ambitious Founders",
@@ -24,9 +26,11 @@ const metadata = {
 
 export default function Home() {
   const containerRef = useRef(null);
+  const x = useWindowSize();
+  console.log(x);
   const [dimensions, setDimensions] = useState({
-    width: 1731,
-    height: 1000,
+    width: innerWidth,
+    height: innerHeight,
   });
 
   const resizeCanvas = () => {
@@ -69,11 +73,10 @@ export default function Home() {
       }}
     >
       <MetaballCanvas
-        style={{ filter: "blur(10px)" }}
         width={dimensions.width}
         height={dimensions.height}
         amount={177}
-        density={8}
+        density={11}
       />
       <div
         style={{

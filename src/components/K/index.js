@@ -1,8 +1,11 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
+import { Noise } from "noisejs";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import * as THREE from "three";
 import {
+  DataTexture,
   ExtrudeGeometry,
   MeshNormalMaterial,
   Box3,
@@ -15,8 +18,29 @@ import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
 const ExtrudedSvg = ({ svgUrl }) => {
   const [geometry, setGeometry] = useState(null);
   const meshRef = useRef();
-
   const { camera } = useThree();
+
+  // noise
+  const noise = new Noise(Math.random());
+
+  const size = 512; // Size of the texture
+  const data = new Uint8Array(size * size * 3);
+
+  for (let i = 0; i < size; i++) {
+    for (let j = 0; j < size; j++) {
+      // Generate Perlin noise for this pixel
+      const value = noise.simplex2(i / 100, j / 100);
+
+      // Map the noise value to the range [0, 255]
+      const color = (value + 1) * 0.5 * 255;
+
+      // Set the red, green, and blue channels for this pixel
+      data[(i * size + j) * 3 + 0] = color;
+      data[(i * size + j) * 3 + 1] = color;
+      data[(i * size + j) * 3 + 2] = color;
+    }
+  }
+  const texture = new THREE.DataTexture(data, size, size);
 
   useEffect(() => {
     const loader = new SVGLoader();
@@ -55,7 +79,7 @@ const ExtrudedSvg = ({ svgUrl }) => {
 
   if (!geometry) return null;
 
-  // Shader Material
+  // BASE Shader Material
   const vertexShader = `
   varying vec3 vNormal;
   void main() {
@@ -67,9 +91,25 @@ const ExtrudedSvg = ({ svgUrl }) => {
   varying vec3 vNormal;
   void main() {
     float intensity = max(dot(vNormal, vec3(0.0, 0.0, 1.0)), 0.0);
-    gl_FragColor = vec4(intensity * vec3(1.0), 1.0);
+    gl_FragColor = vec4(intensity * vec3(0.8888888, 0.888888888, 0.55555555), 1.0);
   }
   `;
+
+  //   const vertexShader = `
+  //   varying vec3 vNormal;
+  //   void main() {
+  //     vNormal = normalize(normalMatrix * normal);
+  //     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+  //   }
+  // `;
+
+  //   const fragmentShader = `
+  //   varying vec3 vNormal;
+  //   void main() {
+  //     vec3 iridescentColor = vec3(0.5 * cos(vNormal.x * 2.0) + 0.5, 0.5 * cos(vNormal.y * 2.0) + 0.5, 0.5 * cos(vNormal.z * 2.0) + 0.5);
+  //     gl_FragColor = vec4(iridescentColor, 0.5); // 0.5 for semi-transparent glass effect
+  //   }
+  // `;
 
   // COLOR CHANGER
   //   const vertexShader = `
@@ -119,7 +159,9 @@ const ExtrudedSvg = ({ svgUrl }) => {
   const material = new ShaderMaterial({
     vertexShader,
     fragmentShader,
-    uniforms: {},
+    uniforms: {
+      normalMap: { value: texture },
+    },
   });
   ``;
 
