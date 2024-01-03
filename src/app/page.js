@@ -26,11 +26,11 @@ const metadata = {
 
 export default function Home() {
   const containerRef = useRef(null);
-  const x = useWindowSize();
-  console.log(x);
+  const { x, y } = useWindowSize();
+  console.log(x, y);
   const [dimensions, setDimensions] = useState({
-    width: innerWidth,
-    height: innerHeight,
+    width: 1440,
+    height: 1024,
   });
 
   const resizeCanvas = () => {
