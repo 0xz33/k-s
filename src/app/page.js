@@ -6,24 +6,6 @@ import MetaballCanvas from "./MetaballCanvas";
 import { useLayoutEffect, useRef, useState } from "react";
 import { useWindowSize } from "react-use";
 
-const metadata = {
-  title: "Kharmha Lab",
-  description: "Design-Driven Creative Studio for Ambitious Founders",
-  image: "",
-  keywords: [
-    "kharmha",
-    "karma",
-    "crypto",
-    "design",
-    "web3",
-    "ai",
-    "design",
-    "product",
-    "design",
-    "studio",
-  ],
-};
-
 export default function Home() {
   const containerRef = useRef(null);
   const { x, y } = useWindowSize();

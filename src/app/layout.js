@@ -9,8 +9,30 @@ export default function RootLayout({
   theme = "dark",
   className,
 }) {
+  const metadata = {
+    title: "Kharmha Lab",
+    description: "Design-Driven Creative Studio for Ambitious Founders",
+    image: "",
+    keywords: [
+      "kharmha",
+      "karma",
+      "crypto",
+      "design",
+      "web3",
+      "ai",
+      "design",
+      "product",
+      "design",
+      "studio",
+    ],
+  };
   return (
     <html lang="en">
+      <head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+        <meta name="keywords" content={metadata.keywords.join(", ")} />
+      </head>
       <body>
         <main>
           <div className={cn(`theme-${theme}`, s.gridContainer, className)}>
