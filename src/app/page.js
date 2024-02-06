@@ -5,6 +5,7 @@ import HomeContent from "@/components/HomeContent";
 import MetaballCanvas from "./MetaballCanvas";
 import { useLayoutEffect, useRef, useState } from "react";
 import { useWindowSize } from "react-use";
+import ContentContainer from "@/components/ContentContainer";
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -44,17 +45,8 @@ export default function Home() {
 
   return (
     // <div className={s.content}>
-    <section
-      style={{
-        width: "100vw",
-        height: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        position: "relative",
-      }}
-    >
-      <MetaballCanvas
+    <section>
+      {/* <MetaballCanvas
         width={dimensions.width}
         height={dimensions.height}
         amount={177}
@@ -73,8 +65,10 @@ export default function Home() {
         }}
       >
         <K />
-      </div>
-      {/* <HomeContent /> */}
+      </div> */}
+      <ContentContainer>
+        <HomeContent />
+      </ContentContainer>
     </section>
   );
 }

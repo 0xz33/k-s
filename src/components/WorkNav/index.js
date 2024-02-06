@@ -7,11 +7,13 @@ const WorkNav = () => {
   const router = useRouter();
   const path = usePathname();
 
-  const isWork = path.includes("/work");
+  if (path === "/work") {
+    return null;
+  }
 
   return (
     <nav className={s.navbar}>
-      <div classname={s.buttonContainer}>
+      <div className={s.buttonContainer}>
         <button className={s.closeButton} onClick={() => router.back()}>
           CLOSE
         </button>

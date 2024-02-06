@@ -2,6 +2,7 @@ import s from "./page.module.scss";
 import SidePane from "@/components/Sidepane";
 import cn from "clsx";
 import styles from "../styles/global.scss";
+import GlobalNav from "@/components/GlobalNav";
 
 export default function RootLayout({
   children,
@@ -35,6 +36,7 @@ export default function RootLayout({
       </head>
       <body>
         <main>
+          <GlobalNav />
           <div className={cn(`theme-${theme}`, s.gridContainer, className)}>
             {children}
             {/* <SidePane /> */}

@@ -4,12 +4,13 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import ClientList from "../ClientList";
 import Beliefs from "../Beliefs";
+import HomeHero from "../HomeHero";
 
 const HomeContent = () => {
   const path = usePathname();
 
   if (path === "/") {
-    return <ClientList />;
+    return <HomeHero />;
   } else if (path === "/about") {
     return <Beliefs />;
   } else if (path === "/contact") {

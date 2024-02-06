@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const lore = () => {
   return (
-    <>
+    <section className={s.container}>
       {[...Array(8)].map((_, i) => (
         <Image
           key={i + 1}
@@ -14,7 +14,7 @@ const lore = () => {
           className={s.fullWidthImg}
         />
       ))}
-    </>
+    </section>
   );
 };
 
