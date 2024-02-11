@@ -1,0 +1,36 @@
+.container {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  user-select: none;
+  border-right: 1px solid #000;
+}
+
+.track {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  min-width: 100%;
+  animation: slide 44s linear infinite;
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.text {
+  color: var(--theme-primary);
+  font-family: "Px Grotesk";
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 3.5rem;
+  text-transform: uppercase;
+}

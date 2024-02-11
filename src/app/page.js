@@ -8,40 +8,40 @@ import { useWindowSize } from "react-use";
 import ContentContainer from "@/components/ContentContainer";
 
 export default function Home() {
-  const containerRef = useRef(null);
-  const { x, y } = useWindowSize();
-  console.log(x, y);
-  const [dimensions, setDimensions] = useState({
-    width: 1440,
-    height: 1024,
-  });
+  // const containerRef = useRef(null);
+  // const { x, y } = useWindowSize();
+  // console.log(x, y);
+  // const [dimensions, setDimensions] = useState({
+  //   width: 1440,
+  //   height: 1024,
+  // });
 
-  const resizeCanvas = () => {
-    if (containerRef.current) {
-      setDimensions({
-        width: containerRef.current.offsetWidth,
-        height: containerRef.current.offsetHeight,
-      });
-    }
-  };
+  // const resizeCanvas = () => {
+  //   if (containerRef.current) {
+  //     setDimensions({
+  //       width: containerRef.current.offsetWidth,
+  //       height: containerRef.current.offsetHeight,
+  //     });
+  //   }
+  // };
 
-  useLayoutEffect(() => {
-    function updateDimensions() {
-      if (containerRef.current) {
-        setDimensions({
-          width: containerRef.current.offsetWidth,
-          height: containerRef.current.offsetHeight,
-        });
-      }
-    }
+  // useLayoutEffect(() => {
+  //   function updateDimensions() {
+  //     if (containerRef.current) {
+  //       setDimensions({
+  //         width: containerRef.current.offsetWidth,
+  //         height: containerRef.current.offsetHeight,
+  //       });
+  //     }
+  //   }
 
-    resizeCanvas();
-    updateDimensions();
+  //   resizeCanvas();
+  //   updateDimensions();
 
-    window.addEventListener("resize", resizeCanvas);
-    return () =>
-      window.removeEventListener("resize", resizeCanvas, updateDimensions);
-  }, []);
+  //   window.addEventListener("resize", resizeCanvas);
+  //   return () =>
+  //     window.removeEventListener("resize", resizeCanvas, updateDimensions);
+  // }, []);
 
   return (
     // <div className={s.content}>
