@@ -6,6 +6,7 @@ import MetaballCanvas from "./MetaballCanvas";
 import { useLayoutEffect, useRef, useState } from "react";
 import { useWindowSize } from "react-use";
 import ContentContainer from "@/components/ContentContainer";
+import NoiseDots from "@/components/NoiseDots";
 
 export default function Home() {
   // const containerRef = useRef(null);

@@ -2,9 +2,8 @@
   width: 100vw;
   height: 100vh;
   // display: flex;
-  overflow: hidden;
-  overscroll-behavior: none;
-  background-color: var(--theme-secondary);
+  // overflow: hidden;
+  // overscroll-behavior: none;
   color: var(--theme-primary);
 
   @media (max-width: 835px) {
